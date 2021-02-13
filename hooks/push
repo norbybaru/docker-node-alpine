@@ -2,9 +2,9 @@
 
 set -ex
 
-# Don't push images if branch is not master
+# Don't push images if branch is not main
 echo "Current Branch: $SOURCE_BRANCH"
-if [ "${SOURCE_BRANCH}" != "master" ]; then
+if [ "${SOURCE_BRANCH}" != "main" ]; then
     exit 0
 fi
 
