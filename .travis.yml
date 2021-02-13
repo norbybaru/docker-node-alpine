@@ -6,9 +6,9 @@ env:
     - REPO_NAME=norby/node
     - BASE_IMAGE=alpine
   matrix:
-    - VERSION=10"
-    - VERSION=11"
-    - VERSION=12"
+    - VERSION=10
+    - VERSION=11
+    - VERSION=12
     - VERSION=14 EXTRA_TAGS="latest"
 
 install:
