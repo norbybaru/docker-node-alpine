@@ -1,0 +1,21 @@
+language: bash
+services: docker
+
+env:
+  global:
+    - REPO_NAME=norby/node
+    - BASE_IMAGE=alpine
+  matrix:
+    - VERSION=10"
+    - VERSION=11"
+    - VERSION=12"
+    - VERSION=14 EXTRA_TAGS="latest"
+
+install:
+  - git clone https://github.com/docker-library/official-images.git ~/official-images
+
+script:
+  - "./hooks/build.sh"
+
+after_script:
+  - docker images
