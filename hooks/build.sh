@@ -16,7 +16,7 @@ image_id=$(docker images $TAG --format "{{.ID}}")
 
 docker images
 
-if [[ -n "${EXTRA_TAGS}"  ]]; then
+if [[ ! -z "${EXTRA_TAGS}" ]]; then
     for extra_tag in ${EXTRA_TAGS//;/$'\n'}; do
         echo $TAG
         echo $extra_tag
