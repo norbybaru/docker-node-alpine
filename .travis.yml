@@ -5,6 +5,7 @@ env:
   global:
     - REPO_NAME=norby/node
     - BASE_IMAGE=alpine
+    - EXTRA_TAGS=""
   matrix:
     - VERSION=10
     - VERSION=11
