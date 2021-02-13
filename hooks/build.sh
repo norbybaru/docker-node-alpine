@@ -16,12 +16,15 @@ image_id=$(docker images $TAG --format "{{.ID}}")
 
 docker images
 
-for extra_tag in ${EXTRA_TAGS//;/$'\n'}
-do
-    echo $TAG
-    echo $extra_tag
-    docker tag $TAG "${REPO_NAME}:${extra_tag}"
-done
+if [[ -n "${EXTRA_TAGS}"  ]]; then
+    for extra_tag in ${EXTRA_TAGS//;/$'\n'}; do
+        echo $TAG
+        echo $extra_tag
+        docker tag $TAG "${REPO_NAME}:${extra_tag}"
+    done
+fi
+
+
 
 docker run --rm --entrypoint node $TAG -v
 docker run --rm --entrypoint npm $TAG -v
