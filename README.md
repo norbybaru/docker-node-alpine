@@ -1,8 +1,10 @@
 # Node Alpine Image
 
-# Tags
+[![Build Status](https://travis-ci.com/norbybaru/docker-node-alpine.svg?branch=main)](https://travis-ci.com/norbybaru/docker-node-alpine)
 
-# Local Build
+## Tags
+
+## Local Build
 ```bash
 REPO_NAME=norby/node-alpine BASE_IMAGE=alpine VERSION=12 ./hooks/build.sh
 ```
