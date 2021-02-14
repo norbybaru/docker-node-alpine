@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# norby/node:10
-TAG="${REPO_NAME}:${VERSION}-${BASE_IMAGE}"
+# norby/node-alpine:10
+TAG="${REPO_NAME}:${VERSION}"
 
-set -eux
+set -ex
 docker build \
     --no-cache \
     -t "$TAG" \

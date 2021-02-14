@@ -8,7 +8,7 @@ if [ "${SOURCE_BRANCH}" != "main" ]; then
     exit 0
 fi
 
-for tag in $(docker images norby/php-alpine --format "{{.Tag}}");
+for tag in $(docker images norby/node-alpine --format "{{.Tag}}");
 do
-    docker push "norby/node:${tag}"
+    docker push "norby/node-alpine:${tag}"
 done
