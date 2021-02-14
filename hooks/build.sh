@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# norby/node:10
-TAG="${REPO_NAME}:${VERSION}-${BASE_IMAGE}"
+# norby/node-alpine:10
+TAG="${REPO_NAME}:${VERSION}"
 
-set -eux
+set -ex
 docker build \
     --no-cache \
     -t "$TAG" \
@@ -16,12 +16,15 @@ image_id=$(docker images $TAG --format "{{.ID}}")
 
 docker images
 
-for extra_tag in ${EXTRA_TAGS//;/$'\n'}
-do
-    echo $TAG
-    echo $extra_tag
-    docker tag $TAG "${REPO_NAME}:${extra_tag}"
-done
+if [[ ! -z "${EXTRA_TAGS}" ]]; then
+    for extra_tag in ${EXTRA_TAGS//;/$'\n'}; do
+        echo $TAG
+        echo $extra_tag
+        docker tag $TAG "${REPO_NAME}:${extra_tag}"
+    done
+fi
+
+
 
 docker run --rm --entrypoint node $TAG -v
 docker run --rm --entrypoint npm $TAG -v

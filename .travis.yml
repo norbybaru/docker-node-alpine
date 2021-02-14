@@ -3,12 +3,13 @@ services: docker
 
 env:
   global:
-    - REPO_NAME=norby/node
+    - REPO_NAME=norby/node-alpine
     - BASE_IMAGE=alpine
+    - EXTRA_TAGS=""
   matrix:
-    - VERSION=10"
-    - VERSION=11"
-    - VERSION=12"
+    - VERSION=10
+    - VERSION=11
+    - VERSION=12
     - VERSION=14 EXTRA_TAGS="latest"
 
 install:
